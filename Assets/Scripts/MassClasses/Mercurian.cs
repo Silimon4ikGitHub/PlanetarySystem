@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mercurian : PlanetObject
+public class Mercurian : PlanetaryObject
 {
     [SerializeField] private double maxMass = 0.1;
     [SerializeField] private double minMass = 0.00001;

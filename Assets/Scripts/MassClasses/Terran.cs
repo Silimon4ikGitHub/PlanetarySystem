@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Terran : PlanetObject
+public class Terran : PlanetaryObject
 {
     [SerializeField] private double maxMass = 2;
     [SerializeField] private double minMass = 0.5;

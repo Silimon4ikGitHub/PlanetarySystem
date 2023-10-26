@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Neptunian : PlanetObject
+public class Neptunian : PlanetaryObject
 {
     [SerializeField] private double maxMass = 50;
     [SerializeField] private double minMass = 10;

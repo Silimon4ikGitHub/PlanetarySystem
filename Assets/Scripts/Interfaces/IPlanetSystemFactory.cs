@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IPlanetSystemFactory 
+public interface IPlanetarySystemFactory 
 {
-    void CreateSystem(double mass);
+    void Create(double mass);
 
 }

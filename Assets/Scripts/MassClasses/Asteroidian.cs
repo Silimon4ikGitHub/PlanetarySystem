@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Asteroidian : PlanetObject
+public class Asteroidian : PlanetaryObject
 {
     [SerializeField] private double maxMass = 0.00001;
     [SerializeField] private double minMass = 0;

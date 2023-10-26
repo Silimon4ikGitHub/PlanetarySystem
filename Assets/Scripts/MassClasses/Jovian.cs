@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jovian : PlanetObject
+public class Jovian : PlanetaryObject
 {
     [SerializeField] private double maxMass = 5000;
     [SerializeField] private double minMass = 50;

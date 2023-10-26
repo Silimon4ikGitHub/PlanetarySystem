@@ -5,7 +5,7 @@ using PathCreation;
 using PathCreation.Examples;
 using Unity.VisualScripting;
 
-public class PlanetObject : MonoBehaviour
+public class PlanetaryObject : MonoBehaviour
 {
     [SerializeField] public PathCreator orbit;
     [SerializeField] public double myMass;
@@ -14,7 +14,6 @@ public class PlanetObject : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] protected double minScale = 0.5f;
     [SerializeField] protected double maxScale = 2.0f;
-
     void Update()
     {
         Move();

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Superterran : PlanetObject
+public class Superterran : PlanetaryObject
 {
     [SerializeField] private double maxMass = 10;
     [SerializeField] private double minMass = 2;
