@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 960648343826474326}
   m_Layer: 0
   m_Name: Mercurian
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,13 +110,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e37b4547d7175c4c88bd54f546e1dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orbit: {fileID: 0}
-  myMass: 0
+  Orbit: {fileID: 0}
   myRadius: 0
-  distance: 0
-  speed: 4
+  myMass: 0
   minScale: 0.5
   maxScale: 2
+  distance: 0
+  speed: 4
   maxMass: 0.1
   minMass: 0.00001
   maxRadius: 0.7

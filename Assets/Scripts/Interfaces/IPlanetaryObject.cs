@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IPlanetaryObject 
+public interface IPlanetaryObject
 {
-    double MyMass { get; set; }
+    double Mass { get; set; }
+    void Move(float speed);
 }

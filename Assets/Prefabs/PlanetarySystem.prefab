@@ -758,7 +758,7 @@ GameObject:
   - component: {fileID: 2701302814322382933}
   m_Layer: 0
   m_Name: PlanetarySystem
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -791,12 +791,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c43fb43af147341a472e91fe381362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mySystemMass: 0
+  MySystemMass: 0
+  MyOrbits: []
+  MyStar: {fileID: 0}
+  MyPlanets: []
   restMass: 0
   myFactory: {fileID: 0}
-  myOrbits: []
-  myStar: {fileID: 0}
-  myPlanets: []
 --- !u!1 &2701302814443674290
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,5 +5,4 @@ using UnityEngine;
 public interface IPlanetarySystemFactory 
 {
     void Create(double mass);
-
 }

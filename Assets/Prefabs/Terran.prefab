@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7254569331031968811}
   m_Layer: 0
   m_Name: Terran
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,13 +110,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e424f392440e24d985548a03ea4cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orbit: {fileID: 0}
-  myMass: 0
+  Orbit: {fileID: 0}
   myRadius: 0
-  distance: 0
-  speed: 2
+  myMass: 0
   minScale: 0.5
   maxScale: 2
+  distance: 0
+  speed: 2
   maxMass: 2
   minMass: 0.5
   maxRadius: 1.9

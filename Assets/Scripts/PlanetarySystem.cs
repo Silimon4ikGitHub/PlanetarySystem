@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
+using System;
 
 public class PlanetarySystem : MonoBehaviour, IPlanetarySystem
 {
@@ -28,23 +29,38 @@ public class PlanetarySystem : MonoBehaviour, IPlanetarySystem
     }
     private void CreatePlanets()
     {
-        while (restMass > 0)
+        ShuffleArray(ref MyOrbits);
+        if (restMass > 0)
         {
-            Transform randomOrbit = GetRandom(MyOrbits);
-            GameObject randomPlanet = GetRandom(myFactory.MassClasses);
+            for (int i = 0; i < MyOrbits.Length; i++)
+                if (restMass > 0)
+                {
+                    GameObject randomPlanet = GetRandom(myFactory.MassClasses);
+                    var newPlanet = Instantiate(randomPlanet, MyOrbits[i].transform, true);
+                    newPlanet.GetComponent<PlanetaryObject>().Orbit = MyOrbits[i].GetComponent<PathCreator>();
 
-            var newPlanet = Instantiate(randomPlanet, randomOrbit.transform, true);
+                    if (newPlanet.GetComponent<PlanetaryObject>().Orbit != null)
+                    {
+                        restMass -= newPlanet.GetComponent<IPlanetaryObject>().Mass;
+                        MyPlanets.Add(newPlanet);
+                    }
+                    else
+                        Destroy(newPlanet);
+                }
+        }
+    }
 
-            newPlanet.GetComponent<PlanetaryObject>().Orbit = randomOrbit.GetComponent<PathCreator>();
+    private void ShuffleArray(ref Transform[] array)
+    {
+        System.Random rand = new System.Random();
+        
+        for (int i = array.Length - 1; i >= 1; i--)
+        {
+            int j = rand.Next(i + 1);
 
-            if (newPlanet.GetComponent<PlanetaryObject>().Orbit != null)
-            {
-                restMass -= newPlanet.GetComponent<IPlanetaryObject>().MyMass;
-                MyPlanets.Add(newPlanet);
-            }
-            else
-                Destroy(newPlanet);
-
+            Transform tmp = array[j];
+            array[j] = array[i];
+            array[i] = tmp;
         }
     }
 

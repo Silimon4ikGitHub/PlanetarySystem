@@ -11,8 +11,10 @@ public class Jovian : PlanetaryObject
     [SerializeField] private double minRadius = 3.5;
     private void Awake()
     {
-        MyMass = GetRandomMass(minMass, maxMass);
-        myRadius = Interpolate(minMass, maxMass, minRadius, maxRadius, MyMass);
+        Mass = GetRandomMass(minMass, maxMass);
+        myRadius = Interpolate(minMass, maxMass, minRadius, maxRadius, Mass);
         ChangeScaleByRadius(Interpolate(minRadius, maxRadius, minScale, maxScale, myRadius));
+        massClass.Equals(massClassEnum.Jovian);
+        myMass = Mass;
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2846624583868732931}
   m_Layer: 0
   m_Name: Superterran
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,13 +110,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97affe3103ebfe442a6daf9dcddcb56b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orbit: {fileID: 0}
-  myMass: 0
+  Orbit: {fileID: 0}
   myRadius: 0
-  distance: 0
-  speed: 2.5
+  myMass: 0
   minScale: 0.5
   maxScale: 2
+  distance: 0
+  speed: 2.5
   maxMass: 10
   minMass: 2
   maxRadius: 3.3

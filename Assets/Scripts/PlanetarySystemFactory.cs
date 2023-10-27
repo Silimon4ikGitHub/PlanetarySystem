@@ -6,30 +6,45 @@ using Unity.VisualScripting;
 using UnityEngine;
 using PathCreation.Examples;
 using PathCreation;
+using TMPro;
+using UnityEngine.UI;
 
 public class PlanetarySystemFactory : MonoBehaviour, IPlanetarySystemFactory
 {
     public double MaxSystemMass;
     public List<GameObject> MassClasses = new List<GameObject>();
 
-    [SerializeField] private double restMass;
-    [SerializeField] private double currnetMass;
+    [SerializeField] private int systemsCount = 3;
 
     [SerializeField] private Vector3 offsetPosition;
+    [SerializeField] private Vector3 firstPosition;
     [SerializeField] private GameObject systemExample;
     [SerializeField] private List<GameObject> planetarySystems = new List<GameObject>();
-    [SerializeField] private enum massClassEnum { Asteroidian = 1, Mercurian = 2, Subterran = 3, Terran = 4, Superterran = 5, Neptunian = 6, Jovian = 7 }
-    [SerializeField] massClassEnum massClass;
-
-    private void Awake()
-    {
-    }
 
     public void Create(double mass)
     {
-        var newSystem = Instantiate(systemExample, transform.position, transform.rotation);
-        planetarySystems.Add(newSystem);
-        TakeNextPosition();
+        for (int i = 0; i < systemsCount; i++)
+        {
+            var newSystem = Instantiate(systemExample, transform.position, transform.rotation);
+            planetarySystems.Add(newSystem);
+            TakeNextPosition();
+        }
+        gameObject.GetComponent<ISimulationController>().TakeAllPlanets();
+    }
+
+    public void CreateAll()
+    {
+        firstPosition = transform.position;
+
+        for (int i = 0; i < planetarySystems.Count; i++)
+        {
+            Destroy(planetarySystems[i]);
+        }
+
+        planetarySystems.Clear();
+        Create(MaxSystemMass);
+
+        transform.position = firstPosition;
     }
     public void Update()
     {
@@ -42,5 +57,4 @@ public class PlanetarySystemFactory : MonoBehaviour, IPlanetarySystemFactory
     {
         transform.position += offsetPosition;
     }
-
 }

@@ -12,8 +12,10 @@ public class Asteroidian : PlanetaryObject
     [SerializeField] private double minRadius = 0;
     private void Awake()
     {
-        MyMass = GetRandomMass(minMass, maxMass);
-        myRadius = Interpolate(minMass, maxMass, minRadius, maxRadius, MyMass);
+        Mass = GetRandomMass(minMass, maxMass);
+        myRadius = Interpolate(minMass, maxMass, minRadius, maxRadius, Mass);
         ChangeScaleByRadius(Interpolate(minRadius, maxRadius, minScale, maxScale, myRadius));
+        massClass.Equals(massClassEnum.Asteroidian);
+        myMass = Mass;
     }
 }
