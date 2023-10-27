@@ -4,36 +4,43 @@ using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
 
-public class PlanetarySystem : MonoBehaviour
+public class PlanetarySystem : MonoBehaviour, IPlanetarySystem
 {
-    [SerializeField] public double mySystemMass;
+    public double MySystemMass;
+    public Transform[] MyOrbits;
+    public Transform MyStar;
+    public List<GameObject> MyPlanets = new List<GameObject>();
+
     [SerializeField] private double restMass;
     [SerializeField] private PlanetarySystemFactory myFactory;
-    [SerializeField] public Transform[] myOrbits;
-    [SerializeField] public Transform myStar;
-    [SerializeField] public List<GameObject> myPlanets = new List<GameObject>();
+
 
     private void Awake()
     {
         myFactory = FindObjectOfType<PlanetarySystemFactory>();
-        myStar = gameObject.GetComponentInChildren<Transform>();
-        myOrbits = myStar.GetComponentsInChildren<Transform>();
-        mySystemMass = myFactory.maxSystemMass;
+        MyStar = gameObject.GetComponentInChildren<Transform>();
+        MyOrbits = MyStar.GetComponentsInChildren<Transform>();
+        MySystemMass = myFactory.MaxSystemMass;
 
-        restMass = mySystemMass;
+        restMass = MySystemMass;
+
+        CreatePlanets();
+    }
+    private void CreatePlanets()
+    {
         while (restMass > 0)
         {
-            Transform randomOrbit = GetRandom(myOrbits);
-            GameObject randomPlanet = GetRandom(myFactory.massClasses);
-            
+            Transform randomOrbit = GetRandom(MyOrbits);
+            GameObject randomPlanet = GetRandom(myFactory.MassClasses);
+
             var newPlanet = Instantiate(randomPlanet, randomOrbit.transform, true);
 
-            newPlanet.GetComponent<PlanetaryObject>().orbit = randomOrbit.GetComponent<PathCreator>();
+            newPlanet.GetComponent<PlanetaryObject>().Orbit = randomOrbit.GetComponent<PathCreator>();
 
-            if (newPlanet.GetComponent<PlanetaryObject>().orbit != null)
+            if (newPlanet.GetComponent<PlanetaryObject>().Orbit != null)
             {
-                restMass -= newPlanet.GetComponent<PlanetaryObject>().myMass;
-                myPlanets.Add(newPlanet);
+                restMass -= newPlanet.GetComponent<IPlanetaryObject>().MyMass;
+                MyPlanets.Add(newPlanet);
             }
             else
                 Destroy(newPlanet);
@@ -49,5 +56,4 @@ public class PlanetarySystem : MonoBehaviour
     {
         return array[UnityEngine.Random.Range(0, array.Length)];
     }
-
 }

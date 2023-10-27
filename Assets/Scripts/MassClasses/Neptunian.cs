@@ -10,8 +10,8 @@ public class Neptunian : PlanetaryObject
     [SerializeField] private double minRadius = 2.1;
     private void Awake()
     {
-        myMass = GetRandomMass(minMass, maxMass);
-        myRadius = Interpolate(minMass, maxMass, minRadius, maxRadius, myMass);
+        MyMass = GetRandomMass(minMass, maxMass);
+        myRadius = Interpolate(minMass, maxMass, minRadius, maxRadius, MyMass);
         ChangeScaleByRadius(Interpolate(minRadius, maxRadius, minScale, maxScale, myRadius));
     }
 }

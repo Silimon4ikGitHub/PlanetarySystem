@@ -9,12 +9,14 @@ using PathCreation;
 
 public class PlanetarySystemFactory : MonoBehaviour, IPlanetarySystemFactory
 {
-    [SerializeField] public double maxSystemMass;
+    public double MaxSystemMass;
+    public List<GameObject> MassClasses = new List<GameObject>();
+
     [SerializeField] private double restMass;
     [SerializeField] private double currnetMass;
+
     [SerializeField] private Vector3 offsetPosition;
     [SerializeField] private GameObject systemExample;
-    [SerializeField] public List<GameObject> massClasses = new List<GameObject>();
     [SerializeField] private List<GameObject> planetarySystems = new List<GameObject>();
     [SerializeField] private enum massClassEnum { Asteroidian = 1, Mercurian = 2, Subterran = 3, Terran = 4, Superterran = 5, Neptunian = 6, Jovian = 7 }
     [SerializeField] massClassEnum massClass;
@@ -33,7 +35,7 @@ public class PlanetarySystemFactory : MonoBehaviour, IPlanetarySystemFactory
     {
         if(Input.GetKeyDown(KeyCode.Space))
             {
-                Create(maxSystemMass);
+                Create(100);
             }
     }
     private void TakeNextPosition()

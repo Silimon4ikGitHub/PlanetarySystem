@@ -2,39 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PathCreation;
-using PathCreation.Examples;
-using Unity.VisualScripting;
 
-public class PlanetaryObject : MonoBehaviour
+
+public class PlanetaryObject : MonoBehaviour, IPlanetaryObject
 {
-    [SerializeField] public PathCreator orbit;
-    [SerializeField] public double myMass;
+    public double MyMass { get; set; }
+    public PathCreator Orbit;
+    
     [SerializeField] protected double myRadius;
-    [SerializeField] private float distance;
-    [SerializeField] private float speed;
     [SerializeField] protected double minScale = 0.5f;
     [SerializeField] protected double maxScale = 2.0f;
+    [SerializeField] private float distance;
+    [SerializeField] private float speed;
+
     void Update()
     {
         Move();
     }
-
-    private void Move()
-    {
-        if(orbit != null)
-        {
-            distance += speed * Time.deltaTime;
-            transform.position = orbit.path.GetPointAtDistance(distance);
-        }
-
-    }
-
     public double GetRandomMass(double lowerBound, double upperBound)
     {
         System.Random random = new System.Random();
         var rDouble = random.NextDouble();
         var rRangeDouble = rDouble * (upperBound - lowerBound) + lowerBound;
         return (rRangeDouble);
+    }
+
+    private void Move()
+    {
+        if(Orbit != null)
+        {
+            distance += speed * Time.deltaTime;
+            transform.position = Orbit.path.GetPointAtDistance(distance);
+        }
+
     }
 
     protected double Interpolate(double Xmin, double Xmax, double Ymin, double Ymax, double Xvalue)

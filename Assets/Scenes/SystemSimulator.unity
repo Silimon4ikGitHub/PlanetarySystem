@@ -183,13 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e6773041113794aa9adea2bdba1fb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSystemMass: 100
-  restMass: 0
-  currnetMass: 0
-  offsetPosition: {x: 40, y: 0, z: 0}
-  myPlanetSystem: {fileID: 0}
-  systemExample: {fileID: 2701302814322382930, guid: 828ccaa17ab8e5545ada208459983270, type: 3}
-  massClasses:
+  MaxSystemMass: 50
+  MassClasses:
   - {fileID: 960493802428377381, guid: 98783d323c75d4347b3df48f3f38b38e, type: 3}
   - {fileID: 3442126541419049087, guid: 32d78d3c4e04b864dbe32ace013cb975, type: 3}
   - {fileID: 1505813493485046959, guid: 0c3bc865a8bbc4d4abe0e5768d74a7f8, type: 3}
@@ -197,7 +192,10 @@ MonoBehaviour:
   - {fileID: 5338113751733316342, guid: 7337f57ebfff28342bc2f249c9141645, type: 3}
   - {fileID: 1815402482665674392, guid: 0e842aa8d4566b24b8fd8b3711ff3b7d, type: 3}
   - {fileID: 3274179739260704386, guid: 7ba0032b1b6672241a9fbdcb5de0ba25, type: 3}
-  orbits: []
+  restMass: 0
+  currnetMass: 0
+  offsetPosition: {x: 40, y: 0, z: 0}
+  systemExample: {fileID: 2701302814322382930, guid: 828ccaa17ab8e5545ada208459983270, type: 3}
   planetarySystems: []
   massClass: 0
 --- !u!4 &438061895

@@ -10,8 +10,8 @@ public class Subterran : PlanetaryObject
     [SerializeField] private double minRadius = 0.5;
     private void Awake()
     {
-        myMass = GetRandomMass(minMass, maxMass);
-        myRadius = Interpolate(minMass, maxMass, minRadius, maxRadius, myMass);
+        MyMass = GetRandomMass(minMass, maxMass);
+        myRadius = Interpolate(minMass, maxMass, minRadius, maxRadius, MyMass);
         ChangeScaleByRadius(Interpolate(minRadius, maxRadius, minScale, maxScale, myRadius));
     } 
 }
